@@ -1,0 +1,28 @@
+name: Deploy Contracts
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '22'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Create .env file
+      run: |
+        cp .env.example .env
+        echo "PRIVATE_KEY=${{ secrets.PRIVATE_KEY }}" >> .env
+    
+    - name: Deploy contracts
+      run: npm run deploy 
