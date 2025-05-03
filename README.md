@@ -2,6 +2,8 @@
 
 A Solidity smart contract project for Polkadot's Polkavm environment.
 
+[![Deploy Contracts](https://github.com/naayra/solidity-polkavm/actions/workflows/deploy.yml/badge.svg)](https://github.com/naayra/solidity-polkavm/actions/workflows/deploy.yml)
+
 ## Setup
 
 1. Install dependencies:
