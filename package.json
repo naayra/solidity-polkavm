@@ -24,5 +24,8 @@
     "@nomicfoundation/hardhat-toolbox": "^5.0.0",
     "@parity/hardhat-polkadot-resolc": "^0.1.0",
     "hardhat": "^2.22.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.5.0"
   }
 }

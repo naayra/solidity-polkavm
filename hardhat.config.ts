@@ -1,4 +1,4 @@
-// import { HardhatUserConfig } from "hardhat/config";
+import 'dotenv/config'
 import "@nomicfoundation/hardhat-toolbox";
 import "@parity/hardhat-polkadot-resolc";
 
@@ -7,7 +7,12 @@ const config = {
   networks: {
     hardhat: {
       polkavm: true
-    }
+    },
+    westendAssetHub: {
+      polkavm: true,
+      url: 'https://westend-asset-hub-eth-rpc.polkadot.io',
+      accounts: [process.env.PRIVATE_KEY],
+    },
   },
   resolc: {
     compilerSource: 'npm',
