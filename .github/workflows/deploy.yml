@@ -22,4 +22,5 @@ jobs:
     - name: Deploy contracts
       env:
         PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+        HARDHAT_IGNITION_CONFIRM_DEPLOYMENT: true
       run: npm run deploy 
