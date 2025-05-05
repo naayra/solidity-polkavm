@@ -25,4 +25,12 @@ jobs:
     - name: Compile contracts
       env:
         PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
-      run: npm run compile 
+        BASE_RPC: ${{ secrets.BASE_RPC }}
+      run: |
+        npm run compile
+        npm run compile:base
+
+    - name: Check file sizes
+      run: |
+        ls -lh artifacts/contracts/ERC721.sol/MyToken.json
+        ls -lh artifacts-pvm/contracts/ERC721.sol/MyToken.json

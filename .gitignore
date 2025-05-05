@@ -139,7 +139,9 @@ node_modules
 .env
 
 # Hardhat files
+/cache
 /cache-pvm
+/artifacts
 /artifacts-pvm
 
 # TypeChain files
