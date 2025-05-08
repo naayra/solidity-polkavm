@@ -1,0 +1,23 @@
+diff --git a/node_modules/@parity/revive/.bun-tag-786576a6532fa5f2 b/.bun-tag-786576a6532fa5f2
+new file mode 100644
+index 0000000000000000000000000000000000000000..e69de29bb2d1d6434b8b29ae775ad8c2e48c5391
+diff --git a/node_modules/@parity/revive/.bun-tag-a9c9c4fa717ae42f b/.bun-tag-a9c9c4fa717ae42f
+new file mode 100644
+index 0000000000000000000000000000000000000000..e69de29bb2d1d6434b8b29ae775ad8c2e48c5391
+diff --git a/dist/index.js b/dist/index.js
+index 967b84f916a00d0efb530d77676a867e76468bb8..6e68aa5a06afa84a07161cd7d4184beaff478965 100644
+--- a/dist/index.js
++++ b/dist/index.js
+@@ -53,7 +53,11 @@ async function compile(sources, option = {}) {
+         language: 'Solidity',
+         sources: resolveInputs(sources),
+         settings: {
+-            optimizer: { enabled: true, runs: 200 },
++            optimizer: {
++                "enabled": true,
++                "mode": "z",
++                "fallback_to_optimizing_for_size": true
++            },
+             outputSelection: {
+                 '*': {
+                     '*': ['abi'],

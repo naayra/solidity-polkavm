@@ -2,6 +2,7 @@ name: Deploy Contracts
 
 on:
   workflow_dispatch:
+  pull_request:
 
 jobs:
   deploy:
@@ -15,12 +16,22 @@ jobs:
       with:
         node-version: '22'
         cache: 'npm'
+
+    - uses: oven-sh/setup-bun@v2
+      with:
+        bun-version: latest
     
     - name: Install dependencies
-      run: npm ci
+      run: bun install
     
-    - name: Deploy contracts
+    - name: Deploy simple ERC721 token
       env:
         PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
         HARDHAT_IGNITION_CONFIRM_DEPLOYMENT: true
-      run: npm run deploy 
+      run: bun run deploy 
+
+    - name: Deploy another ERC721 token
+      env:
+        PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+        HARDHAT_IGNITION_CONFIRM_DEPLOYMENT: true
+      run: bun run deploy:another
